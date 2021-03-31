@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+html, body {
+  height: 100%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: Segoe UI, Tahoma, sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Sample input, .button {
+  font: inherit;
+  background-color:rgb(49, 246, 253);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.react-calendar__navigation {
+  background-color: #2ce0f8;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  padding: 20px;
+  color: rgb(49, 246, 253);
+}
+.react-calendar__navigation__label {
+  font-size: inherit;
+  margin: 0;
+}
+.root {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 10px 0;
+  padding: 10px;
+}
+.Sample__container > * > * {
+  margin: 10px;
+}
+.Sample__container__content {
+  display: flex;
+  max-width: 100%;
+  flex-basis: 420px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-grow: 100;
+  align-items: stretch;
+  padding-top: 1em;
+}
+.Sample__container__content .react-calendar {
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
