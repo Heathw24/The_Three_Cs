@@ -1,13 +1,25 @@
+
 html, body {
   height: 100%;
 }
 body {
   margin: 0;
+  background-color: pink;
   font-family: Segoe UI, Tahoma, sans-serif;
 }
-.Sample input, .button {
+.react-calendar__tile{
   font: inherit;
-  background-color:rgb(49, 246, 253);
+  height: 150px;
+  background-color: teal;
+}
+
+.react-calendar__tile--active{
+  transform: scale(1.25);
+  background-color: lightgreen;
+}
+.react-calendar__tile:hover{
+  background-color: darkgrey;
+  transform: scale(1.15);
 }
 .react-calendar__navigation {
   background-color: #2ce0f8;
@@ -42,4 +54,3 @@ body {
 .Sample__container__content .react-calendar {
   margin: 0 auto;
 }
-
