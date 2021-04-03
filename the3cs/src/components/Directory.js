@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import Authenticate from './Authenticate';
 import App from './App';
+import axios from 'axios';
 
-const userState = {
-    user: null
-}
+
 
 class Directory extends Component {
+
+    state = {
+        user: null
+    }
+
+    componentDidMount() {
+        axios({
+            method: "get",
+            withCredentials: true,
+            url: "http://localhost:4000/user",
+        }).then((res) => this.setState({ user: res.data}));
+    }
+
+    updateUserState = (user) => {
+        this.setState({ user: user})
+    }
+
     render() {
        return (
            <div>
-             
+             {this.state.user? <App user={this.state.user}/> : <Authenticate updateUserState={this.updateUserState}/>}
            </div>
        )
 

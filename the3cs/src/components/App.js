@@ -5,11 +5,12 @@ import '../styling/App.css';
 // import 'react-calendar/dist/Calendar.css';
 
 
-function App() {
+function App(props) {
   const [value, onChange] = useState(new Date());
 
   return (
     <div>
+      <h1>Welcome {props.user.username} </h1>
        <Calendar
         onChange={onChange}
         value={value}
