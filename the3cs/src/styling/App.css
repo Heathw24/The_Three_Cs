@@ -4,22 +4,27 @@ html, body {
 }
 body {
   margin: 0;
-  background-color: pink;
+  background-color: lightcyan;
   font-family: Segoe UI, Tahoma, sans-serif;
 }
+
+.react-calendar {
+  width: 80%;
+}
+
 .react-calendar__tile{
   font: inherit;
-  height: 150px;
+  height: 125px;
   background-color: teal;
 }
 
 .react-calendar__tile--active{
-  transform: scale(1.25);
+  transform: scale(1.15);
   background-color: lightgreen;
 }
 .react-calendar__tile:hover{
   background-color: darkgrey;
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
 .react-calendar__navigation {
   background-color: #2ce0f8;
