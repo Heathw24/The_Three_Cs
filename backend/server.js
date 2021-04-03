@@ -74,7 +74,7 @@ app.post("/register", (req, res) => {
                 password: hashedPassword,
             });
             await newUser.save();
-            res.send("User Created");
+            res.send("User Succsessfully Created");
         }
     })
 });
