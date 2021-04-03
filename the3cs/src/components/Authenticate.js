@@ -18,6 +18,7 @@ function Authenticate(props) {
             url: "http://localhost:4000/register",
         }).then((res) => {
             console.log(res) 
+            alert(res.data);
         }
         );
     };
