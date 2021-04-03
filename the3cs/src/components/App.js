@@ -10,6 +10,7 @@ function App(props) {
 
   return (
     <div>
+      <h1>Welcome {props.user.username} </h1>
        <Calendar
         onChange={onChange}
         value={value}
