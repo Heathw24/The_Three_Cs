@@ -56,7 +56,7 @@ app.post("/login", (req, res, next) => {
        else {
            req.logIn(user, err => {
                if (err) throw err;
-               res.send('Successfully Authenticated');
+               res.json(req.user);
                console.log(req.user);
            })
        }
@@ -80,7 +80,11 @@ app.post("/register", (req, res) => {
 });
 
 app.get("/user", (req, res) => {
-    console.log(req.body);
+    if (req.user) {
+        res.json(req.user);
+    } else {
+        res.json(null);
+    }
 });
 
 

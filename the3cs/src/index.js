@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '../src/components/App';
 import reportWebVitals from './reportWebVitals';
-import Authenticate from "../src/components/Authenticate";
+import Directory from "./components/Directory";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Authenticate />
+    <Directory />
   </React.StrictMode>,
   document.getElementById('root')
 );

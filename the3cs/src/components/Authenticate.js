@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Authenticate() {
+function Authenticate(props) {
 
     const [registerUsername, setRegisterUsername] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
@@ -16,7 +16,10 @@ function Authenticate() {
             },
             withCredentials: true,
             url: "http://localhost:4000/register",
-        }).then((res) => console.log(res));
+        }).then((res) => {
+            console.log(res) 
+        }
+        );
     };
     const login = () => {
         axios({
@@ -27,7 +30,10 @@ function Authenticate() {
             },
             withCredentials: true,
             url: "http://localhost:4000/login",
-        }).then((res) => console.log(res));
+        }).then((res) => {
+            console.log(res)
+            props.updateUserState(res.data);
+        });
     };
 
 
