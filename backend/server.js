@@ -87,6 +87,16 @@ app.get("/user", (req, res) => {
     }
 });
 
+app.put("/user/event", (req,res) => {
+    console.log(req.user);
+    User.findByIdAndUpdate(req.user._id , {$push: {"events": req.body}} , {new: true} , (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(data);
+        }
+    })
+});
 
 
 
