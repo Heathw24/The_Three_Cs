@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal } from './Modal';
 import TriggerButton from './Trigger';
+import '../modal.css';
 
 
 export class Container extends Component {
