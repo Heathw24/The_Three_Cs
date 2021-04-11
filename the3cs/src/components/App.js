@@ -1,18 +1,39 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import '../styling/App.css';
+import { Container } from './Container';
+import axios from 'axios';
 
 // import 'react-calendar/dist/Calendar.css';
 
 function App(props) {
+
+  const triggerText = 'Open Form';
+  const onSubmit = (event) => {
+    event.preventDefault(event);
+    console.log(event.target.name.value);
+    console.log(event.target.transaction.value);
+    axios({
+              method: "put",
+              data: {
+                  name: event.target.name.value,
+                  transaction: event.target.transaction.value,
+              },
+              withCredentials: true,
+              url: "http://localhost:4000/user/event",
+          })
+  };
+
   const [value, onChange] = useState(new Date());
   return (
     <div>
       <h1>Welcome {props.user.username} </h1>
+      <h2>Your budget is {props.user.totalBudget} </h2>
        <Calendar
         onChange={onChange}
         value={value}
       />
+      <Container triggerText={triggerText} onSubmit={onSubmit} />
     </div>
   );
 }

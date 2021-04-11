@@ -23,6 +23,21 @@ class Directory extends Component {
         this.setState({ user: user})
     }
 
+    // saveEvent() {
+    //     axios({
+    //         method: "put",
+    //         data: {
+    //             name: 
+    //             transaction: 
+    //         },
+    //         withCredentials: true,
+    //         url: "http://localhost:4000/user/event",
+    //     })
+    // }
+
+
+    
+
     render() {
        return (
            <div>
