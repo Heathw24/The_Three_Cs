@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import '../styling/App.css';
+// import '../styling/App.css';
 import { Container } from './Container';
 import axios from 'axios';
 
-// import 'react-calendar/dist/Calendar.css';
+import 'react-calendar/dist/Calendar.css';
 
 function App(props) {
 
@@ -24,16 +24,28 @@ function App(props) {
           })
   };
 
+  const toggleContainer = (value, event) => {
+    console.log(event);
+    console.log(value);
+    return(
+      <div>
+        <Container triggerText={triggerText} onSubmit={onSubmit} />
+      </div>
+    )
+  }
+
   const [value, onChange] = useState(new Date());
   return (
     <div>
       <h1>Welcome {props.user.username} </h1>
       <h2>Your budget is {props.user.totalBudget} </h2>
+      
+      <Container triggerText={triggerText} onSubmit={onSubmit} />
        <Calendar
         onChange={onChange}
         value={value}
+        onClickDay={toggleContainer}
       />
-      <Container triggerText={triggerText} onSubmit={onSubmit} />
     </div>
   );
 }
