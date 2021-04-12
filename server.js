@@ -7,9 +7,11 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const bodyParser = require("body-parser");
-const User = require('./user');
+const User = require('./models/user');
+const path = require('path');
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/tester", {
     useNewUrlParser: true,
@@ -46,6 +48,8 @@ app.use(cookieParser("secretcode"))
 app.use(passport.initialize());
 app.use(passport.session());
 require('./passportConfig')(passport);
+
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 
 //--------------------------------------------------------------------------------------
@@ -108,7 +112,12 @@ app.put("/user/event", (req,res) => {
 
 // Start Server
 
-app.listen(4000, () => {
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+
+app.listen(port, () => {
     console.log('Server Has Started')
 })
 
