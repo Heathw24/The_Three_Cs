@@ -11,13 +11,19 @@ const User = require('./user');
 
 const app = express();
 
-mongoose.connect(process.env.ATLAS_DB || "mongodb://localhost:27017/tester", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/tester", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 },
 () => {
     console.log("Mongoose Is Connected");
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+  }
 
 // Middleware
 
