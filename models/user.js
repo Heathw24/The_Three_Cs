@@ -15,17 +15,18 @@ const user = new mongoose.Schema({
     ],
     totalBudget: {
         type: Number,
-        set: calcTotal
+        default: 0,
+        // set: calcTotal
     }
 });
 
-function calcTotal(totalBudget){
-    var totalBudget = 0;
-    for (i=0; i < this.events.length; i++){
-        totalBudget = totalBudget + this.events[i].transaction;
-    };
-    return totalBudget;
-};
+// function calcTotal(totalBudget){
+//     var totalBudget = 0;
+//     for (i=0; i < this.events.length; i++){
+//         totalBudget = totalBudget + this.events[i].transaction;
+//     };
+//     return totalBudget;
+// };
 
 const User = mongoose.model("User", user)
 

@@ -15,9 +15,26 @@ class Directory extends Component {
         axios({
             method: "get",
             withCredentials: true,
-            url: "http://localhost:4000/user",
-        }).then((res) => this.setState({ user: res.data}));
+            url: "/user",
+        }).then((res) => this.setState({ user: res.data})).then((res) => {console.log(this.state.user); this.calcTotal()});
     }
+
+     calcTotal() {
+        var totalBudget = this.state.user.totalBudget
+      
+            for (var i=0; i < this.state.user.events.length; i++){
+                totalBudget = totalBudget + this.state.user.events[i].transaction;
+            };
+            
+            this.setState(prevState => ({
+                user: {
+                    ...prevState.user,
+                    totalBudget: totalBudget
+                }
+            }))
+            console.log(this.state)
+        };
+      
 
     updateUserState = (user) => {
         this.setState({ user: user})
