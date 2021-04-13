@@ -20,7 +20,7 @@ function App(props) {
                   transaction: event.target.transaction.value,
               },
               withCredentials: true,
-              url: "http://localhost:4000/user/event",
+              url: "/user/event",
           })
   };
 
