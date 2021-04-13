@@ -1,10 +1,10 @@
 import React, { Component, useState } from 'react';
 import Calendar from 'react-calendar';
-// import '../styling/App.css';
+import '../styling/App.css';
 import { Container } from './Container';
 import axios from 'axios';
 
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 
 function App(props) {
 
@@ -33,17 +33,13 @@ function App(props) {
               },
               withCredentials: true,
               url: "/user/event",
-          })
+          }).then(window.location.reload(false));
   };
 
   const toggleContainer = (value, event) => {
     console.log(event);
     console.log(value);
-    return(
-      <div>
-        <Container triggerText={triggerText} onSubmit={onSubmit} />
-      </div>
-    )
+
   }
 
   const [value, onChange] = useState(new Date());
