@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import Calendar from 'react-calendar';
 // import '../styling/App.css';
 import { Container } from './Container';
@@ -7,6 +7,18 @@ import axios from 'axios';
 import 'react-calendar/dist/Calendar.css';
 
 function App(props) {
+
+  
+  // const calcTotal =() => {
+  // var totalBudget = props.user.totalBudget
+
+  //     for (var i=0; i < props.user.events.length; i++){
+  //         totalBudget = totalBudget + props.user.events[i].transaction;
+  //     };
+      
+  //     this.setState({ totalBudget: totalBudget})
+  // };
+
 
   const triggerText = 'Open Form';
   const onSubmit = (event) => {
