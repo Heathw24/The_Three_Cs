@@ -15,7 +15,7 @@ function Authenticate(props) {
                 password: registerPassword,
             },
             withCredentials: true,
-            url: "http://localhost:4000/register",
+            url: "/register",
         }).then((res) => {
             console.log(res) 
             alert(res.data);
@@ -30,7 +30,7 @@ function Authenticate(props) {
                 password: loginPassword,
             },
             withCredentials: true,
-            url: "http://localhost:4000/login",
+            url: "/login",
         }).then((res) => {
             console.log(res)
             props.updateUserState(res.data);
